@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ======================================================== -->
+  <!-- SEARCH ENGINE OPTIMIZATION (SEO) & SOCIAL GRAPH -->
+  <!-- ======================================================== -->
+  <title>Epoch One BracU | Student-Led AI Collective & Research at BRAC University</title>
+  <meta name="description" content="Epoch One is a student-led Artificial Intelligence collective at BRAC University. Founded by Kazi Sakib Hasan, Epoch One aims to develop standard ML systems, original applied AI research, and quality datasets." />
+  <meta name="keywords" content="Epoch One, Epoch One BracU, BRAC University AI, Kazi Sakib Hasan, AI Bangladesh, Machine Learning BRACU, Epoch One Social, AI Collective" />
+  <meta name="author" content="Epoch One" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Epoch One BracU — Student-Led AI Collective" />
+  <meta property="og:description" content="Building the strongest undergraduate Machine Learning & Data Science ecosystem at BRAC University." />
+  <meta property="og:url" content="https://epochone.social/" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Epoch One BracU — AI Research & Innovation" />
+  <meta name="twitter:description" content="Bridging the AI and Data Science gap at BRAC University through real-world applications and original research." />
+
+  <!-- Google Structured Data (JSON-LD) for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Epoch One",
+    "alternateName": "Epoch One BracU",
+    "url": "https://epochone.social/",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "BRAC University"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Kazi Sakib Hasan",
+      "url": "https://kazisakibhasan.github.io/",
+      "jobTitle": "ML Research Engineer & Founder"
+    },
+    "description": "Student-led AI collective dedicated to advancing Artificial Intelligence and Data Science at BRAC University.",
+    "sameAs": [
+      "https://epochone.social/",
+      "https://kazisakibhasan.github.io/"
+    ]
+  }
+  </script>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --bg-card: #111827;
+      --bg-card-hover: #172238;
+      --border: #1f293d;
+      --border-accent: #2e4066;
+      --text-main: #f3f4f6;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --badge-news: #2563eb;
+      --badge-news-bg: rgba(37, 99, 235, 0.15);
+      --badge-announce: #10b981;
+      --badge-announce-bg: rgba(16, 185, 129, 0.15);
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ambient Background Glow */
+    .glow-bg {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(10, 15, 29, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 36px 0 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .official-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      color: #93c5fd;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .official-link-btn:hover {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Tabs Bar */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      margin: 32px 0 36px 0;
+      background-color: rgba(17, 24, 39, 0.7);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      background-color: #1e293b;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-accent);
+    }
+
+    /* Tab Panes */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 44px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      line-height: 1.7;
+    }
+
+    /* Pillars Grid */
+    .grid-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .pillar-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .pillar-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillar-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Founder Section */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .founder-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .founder-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .founder-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .founder-subtitle {
+      font-size: 0.95rem;
+      color: #60a5fa;
+      font-weight: 500;
+    }
+
+    .founder-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .founder-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: #1e293b;
+      border: 1px solid var(--border-accent);
+      color: #e2e8f0;
+      transition: all 0.2s;
+    }
+
+    .founder-btn:hover {
+      background: #27354f;
+      color: white;
+    }
+
+    .founder-body {
+      font-size: 0.96rem;
+      color: #cbd5e1;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .credentials-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Outbound Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .cta-banner h4 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-banner p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* ======================================================== */
+    /* NEWS & ANNOUNCEMENTS STYLING */
+    /* ======================================================== */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .news-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-accent);
+    }
+
+    /* Aspect ratio keeps images identical irrespective of dimensions */
+    .card-img-wrapper {
+      width: 100%;
+      height: 190px;
+      background-color: #1e293b;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .news-card:hover .card-img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    /* Badges */
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .badge-news {
+      background-color: var(--badge-news-bg);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .badge-announcement {
+      background-color: var(--badge-announce-bg);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .card-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .card-excerpt {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .card-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      .header-content { flex-direction: column; align-items: flex-start; }
+      .tab-bar { width: 100%; justify-content: stretch; }
+      .tab-btn { flex: 1; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-bg"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="https://epochone.social/" class="brand" target="_blank">
+          <div class="brand-logo">E1</div>
+          <div>
+            <div class="brand-title">Epoch One</div>
+            <span class="brand-sub">BRAC University AI Collective</span>
+          </div>
+        </a>
+
+        <a href="https://epochone.social/" target="_blank" class="official-link-btn">
+          Visit epochone.social <span>&rarr;</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-bar" aria-label="Page Tabs">
+      <button class="tab-btn active" onclick="switchTab('about')">About Epoch One</button>
+      <button class="tab-btn" onclick="switchTab('news')">News & Announcements</button>
+    </nav>
+
+    <!-- TAB 1: ABOUT EPOCH ONE -->
+    <div id="tab-about" class="tab-pane active">
+      <section class="hero">
+        <span class="hero-badge">Student-Led AI Ecosystem</span>
+        <h1>Advancing AI & Data Science Innovation at BRAC University</h1>
+        <p>
+          Epoch One is a collective committed to cultivating high-caliber Artificial Intelligence practitioners, conducting research, developing novel architectures, and delivering real-world community solutions.
+        </p>
+      </section>
+
+      <section class="grid-pillars">
+        <div class="pillar-card">
+          <h3>The Gap We Address</h3>
+          <p>
+            While competitive programming and software development flourish across Bangladeshi universities, a noticeable void remains in structured Artificial Intelligence and Data Science. Epoch One was created to bridge this divide through mentorship, peer research groups, and rigorous technical culture.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <h3>Hands-on Execution</h3>
+          <p>
+            We aim to focus on developing proof-of-concept, standard AI/ML solutions. Our members engage through continuous learning, competitive internal assessments, curated dataset generation, and hybrid model exploration to solve real community problems.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <h3>Collaborative Vision</h3>
+          <p>
+            Collaboration is at the core of innovation. We try to unite students across disciplines who lack peers for hackathons, research publications, or startup ventures—building Bangladesh's most impactful undergraduate AI community.
+          </p>
+        </div>
+      </section>
+
+      <!-- Founder Spotlight -->
+      <h2 class="section-title">Leadership & Founder Spotlight</h2>
+      <div class="founder-card">
+        <div class="founder-header">
+          <div>
+            <h3 class="founder-name">Kazi Sakib Hasan</h3>
+            <p class="founder-subtitle">ML Research Engineer • BRAC University</p>
+          </div>
+          <div class="founder-links">
+            <a href="https://kazisakibhasan.github.io/" target="_blank" class="founder-btn">
+              Portfolio Website ↗
+            </a>
+            <a href="https://epochone.social/members" target="_blank" class="founder-btn">
+              All Epoch One Members ↗
+            </a>
+          </div>
+        </div>
+
+        <p class="founder-body">
+          Kazi Sakib Hasan is an ML researcher specializing in data science, trustworthy ML, and efficient AI systems. He gained experience in industry AI R&D through Japan’s government-funded program in collaboration with Chowa Giken Corporation, contributing to real-world solutions involving 3D point cloud regression—achieving significant improvements in accuracy and training efficiency, resulting in a technology currently being considered for patent filing.
+          <br><br>
+          He continued his work with Chowa Giken Corporation as an ML Research Engineer Intern, supporting applied AI research and evaluation for industry initiatives. He is the lead researcher of peer-reviewed publications, including a <em>Scientific Reports</em> (Nature Portfolio) paper on responsible AI, and IEEE conference papers on interpretable and efficient machine learning. Additionally, he served as a peer reviewer for Q1/Q2 journals and as an instructor for the Asia-Pacific Olympiad in AI (APOAI) 2026. He is currently pursuing his undergraduate studies at BRAC University.
+        </p>
+
+        <div class="credentials-pills">
+          <span class="pill">Nature Portfolio Author</span>
+          <span class="pill">IEEE Conferences</span>
+          <span class="pill">Chowa Giken Corp (Japan)</span>
+          <span class="pill">APOAI 2026 Instructor</span>
+          <span class="pill">Q1/Q2 Reviewer</span>
+        </div>
+      </div>
+
+      <!-- Outbound Link Banner -->
+      <div class="cta-banner">
+        <div>
+          <h4>Explore Our Projects & Full Ecosystem</h4>
+          <p>Read about current initiatives.</p>
+        </div>
+        <a href="https://epochone.social/" target="_blank" class="official-link-btn">
+          Go to Epoch One Official Site &rarr;
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- ====================================================================== -->
+    <!--                                                                        -->
+    <!--                 START OF NEWS AND ANNOUNCEMENTS TAB                   -->
+    <!--                                                                        -->
+    <!-- ====================================================================== -->
+
+    <div id="tab-news" class="tab-pane">
+      <section class="hero">
+        <span class="hero-badge">Dispatches & Updates</span>
+        <h1>News & Announcements</h1>
+        <p>Stay up to date with internal works, project releases, and milestones from Epoch One.</p>
+      </section>
+
+      <div class="news-grid">
+
+
+
+        <!-- ================================================================== -->
+        <!-- POST ITEM 1: NEWS EXAMPLE                                          -->
+        <!-- To change image: replace './assets/sample1.jpg' with your file     -->
+        <!-- Badge type: use 'badge badge-news' for Blue                        -->
+        <!-- ================================================================== -->
+
+        <article class="news-card">
+          <div class="card-img-wrapper">
+            <!-- Put your image in the assets/ folder and reference it below -->
+            <img 
+              src="./assets/e1_research1.png" 
+              onerror="this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80'" 
+              alt="Internal AI Assessment"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge badge-news">News</span>
+              <time class="card-date">April 2026</time>
+            </div>
+            <h3 class="card-title">Epoch One Members Publish IEEE Research on AI-Driven Earthquake Mainshock Classification</h3>
+            <p class="card-excerpt">
+              Following recent high-magnitude tremors across Bangladesh that triggered widespread public anxiety over potential after-effects and larger subsequent quakes, Epoch One members took action to address this crisis through data-driven research. Their resulting paper, now officially published in IEEE Xplorer, introduces a machine learning framework to rapidly distinguish whether a seismic event is a foreshock or a mainshock, a capability for minimizing public panic and activating timely disaster response.
+Trained on an 88-year USGS catalog with physics-informed features (including local seismicity rates and cumulative energy release), the team’s Bayesian-optimized CatBoost model achieved a 0.965 AUC and 0.97 recall for safety-critical detection, supported by SHAP interpretability to explain seismic stress predictors.
+This publication exemplifies Epoch One’s core purpose: empowering BRAC University students to conduct real-world AI research for pressing community challenges, turning local crises into peer-reviewed, globally recognized scientific contributions.
+            </p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11546104" target="_blank" class="card-link">
+              Read Paper &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- ========================== END POST ITEM 1 ======================= -->
+
+
+
+
+
+        <!-- ================================================================== -->
+        <!-- POST ITEM 2: ANNOUNCEMENT EXAMPLE                                  -->
+        <!-- Badge type: use 'badge badge-announcement' for Green               -->
+        <!-- ================================================================== -->
+
+        <article class="news-card">
+          <div class="card-img-wrapper">
+            <!-- Put your image in the assets/ folder and reference it below -->
+            <img 
+              src="./assets/announcement.jpg" 
+              onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80'" 
+              alt="Research Paper Publication"
+            />
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge badge-announcement">Announcements</span>
+              <time class="card-date">June 2026</time>
+            </div>
+            <h3 class="card-title">Epoch One is Temporarily Shut Down</h3>
+            <p class="card-excerpt">
+              Due to management issues, the E1 project is being temporarily shut down for an unspecified duration. Membership requests are no longer accepted. Thank you for staying with us, and we hope to return very soon.
+            </p>
+            <a href="https://epochone.social/announcements" target="_blank" class="card-link">
+              Website &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- ========================== END POST ITEM 2 ======================= -->
+
+
+
+
+
+        <!-- ================================================================== -->
+        <!-- POST ITEM 3: TEMPLATE (COPY & PASTE THIS BLOCK TO ADD A NEW POST)  -->
+        <!--                                                                    -->
+        <!-- For NEWS:         <span class="badge badge-news">News</span>       -->
+        <!-- For ANNOUNCEMENT: <span class="badge badge-announcement">Announcement</span> -->
+        <!-- ================================================================== -->
+
+  
+
+
+        <!-- ======================== END TEMPLATE ============================ -->
+
+
+
+      </div>
+    </div>
+
+    <!-- ====================================================================== -->
+    <!--                                                                        -->
+    <!--                  SECTION FINISHES HERE: NEWS TAB END                   -->
+    <!--                                                                        -->
+    <!-- ====================================================================== -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; Epoch One — Student-Led AI Collective at BRAC University.
+      </p>
+      <p style="margin-top: 6px;">
+        Official Website: <a href="https://epochone.social/" target="_blank">epochone.social</a> • 
+        Founder: <a href="https://kazisakibhasan.github.io/" target="_blank">Kazi Sakib Hasan</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Tab Switching Logic -->
+  <script>
+    function switchTab(tabName) {
+      // Deactivate all tabs & contents
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      // Activate selected tab & content
+      if (tabName === 'about') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('tab-about').classList.add('active');
+      } else if (tabName === 'news') {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('tab-news').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
